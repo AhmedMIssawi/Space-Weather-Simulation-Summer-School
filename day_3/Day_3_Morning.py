@@ -36,8 +36,12 @@ data_arr = np.random.randn(10,5)
 print(data_arr)
 
 # Save the data_arr variable into a .npy file
+np.save('')
+data_arr_loadedd = np.load(test_np_savedata_arr)
 
 
+print(np.equal(data_arr,data_arr_loadedd))
+print(data_arr==data_arr_loadeded)
 #%%
 """
 Writing and reading numpy zip archive/file
@@ -47,7 +51,26 @@ data_arr2 = np.random.randn(8,1)
 print(data_arr2)
 
 # Save the data_arr and data_arr2 variables into a .npz file
+np.savez('test_savez.npz',data_arr,data_arr2)
 
+
+#loaded the numpy zip file
+npzfile= np.load('test_savez.npz')
+#load file is no numpy array, put is Npzfile object. you ae not able 
+#to print the values directly 
+
+print(npzfile)
+
+# to inspect the name of the variables within the npzfile 
+print('variable name within this file:',sorted(npzfile.files))
+
+#we will then be able to use the variables name as a key access the data
+
+print(npzfile['arr_0'])
+
+#verification that the loaded data matches 
+print((data_arr==npzfile['arr_0']).all())
+print((data_arr2==npzfile['arr_1']).all())
 #%%
 """
 Error and exception
@@ -64,7 +87,7 @@ Loading data from Matlab
 import numpy as np
 from scipy.io import loadmat
 
-dir_density_Jb2008 = 'Data/JB2008/2002_JB2008_density.mat'
+dir_density_Jb2008 = 'JB2008/2002_JB2008_density.mat'
 
 # Load Density Data
 try:

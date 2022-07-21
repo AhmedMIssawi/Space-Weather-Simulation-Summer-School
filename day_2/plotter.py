@@ -37,7 +37,7 @@ def plot_symh(url):
 
     time = df['time']
     data = df['SYMH']
-    fig,ax = plt.subplots()
+    fig,ax = plt.subplots(figsize=(15, 15))
     ax.plot(time, data, marker='.', label='All Events')
     # apply < operator on array, then lp is apool numpy array 
     
@@ -57,7 +57,7 @@ def plot_symh(url):
     ax.grid(True)
     ax.legend()
     
-    fig.savefig('saved_figure-100dpi.png', dpi = 100)
+    fig.savefig(f'{url}-100dpi.png', dpi = 100)
     print(df['SYMH'].min())
     print(df['time'][df['SYMH'].idxmax()].isoformat())
     
