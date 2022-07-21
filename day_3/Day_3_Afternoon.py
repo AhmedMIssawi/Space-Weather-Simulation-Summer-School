@@ -20,7 +20,7 @@ Unzipping a zip file using python
 # Importing the required packages
 import zipfile
 
-with zipfile.ZipFile('Data/jena_climate_2009_2016.csv.zip', 'r') as zip_ref:
+with zipfile.ZipFile('jena_climate_2009_2016.csv.zip', 'r') as zip_ref:
     zip_ref.extractall('Data/jena_climate_2009_2016/')
     
     
@@ -31,9 +31,9 @@ Using panda dataframe to read a csv file and doing some simple data manipulation
 # Importing the required packages
 import pandas as pd
 
-csv_path = 'Data/jena_climate_2009_2016/jena_climate_2009_2016.csv'
+csv_path = 'jena_climate_2009_2016/jena_climate_2009_2016.csv'
 df = pd.read_csv(csv_path)
-
+print(df)
 
 #%%
 """
